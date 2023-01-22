@@ -2,18 +2,19 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import VideoCard from "../components/VideoCard";
 import { useQuery } from "react-query";
-import Youtube, { search } from "../api/youtube";
-import FakeYoutube from "../api/fake-youtube";
+// import Youtube, { search } from "../api/youtube";
+// import FakeYoutube from "../api/fake-youtube";
+import { useYoutubeApi } from "../context/YoutubeApiContext";
 // import VideoCard from '../components/VideoCard'
 
 export default function Videos() {
   const { q } = useParams();
+  const { youtube } = useYoutubeApi();
   const {
     isLoading,
     error,
     data: videos,
   } = useQuery(["videos", q], () => {
-    const youtube = new Youtube();
     return youtube.search(q);
   });
   return (
