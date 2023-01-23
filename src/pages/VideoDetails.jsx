@@ -13,7 +13,7 @@ export default function VideoDetails() {
   const {} = useQuery([""]);
 
   return (
-    <section className="flex flex-row">
+    <section className="flex flex-col lg:flex-row">
       <article className="basis-3/4">
         <iframe
           id="player"
@@ -23,10 +23,10 @@ export default function VideoDetails() {
           src={`http://www.youtube.com/embed/${videoId}`}
           frameborder="0"
         />
-        <div>
+        <div className="p-8">
           <h2 className="font-bold text-2xl">{title}</h2>
           <ChannelInfo id={channelId} name={channelTitle} />
-          <pre>{description}</pre>
+          <pre className="whitespace-pre-wrap">{description}</pre>
         </div>
       </article>
       <article className="basis-1/4">

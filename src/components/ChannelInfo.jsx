@@ -14,9 +14,9 @@ export default function ChannelInfo({ id, name }) {
   });
 
   return (
-    <div>
-      {url && <img className="rounded-full" src={url} alt={name} />}
-      <p>{name}</p>
+    <div className="flex my-4 mb-8 items-center">
+      {url && <img className="rounded-full w-10 h-10" src={url} alt={name} />}
+      <p className="text-lg font-medium ml-2">{name}</p>
     </div>
   );
 }
