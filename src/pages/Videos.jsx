@@ -16,6 +16,8 @@ export default function Videos() {
     data: videos,
   } = useQuery(["videos", q], () => {
     return youtube.search(q);
+  }, {
+    staleTime: 1000 * 60 * 1,
   });
   return (
     <>

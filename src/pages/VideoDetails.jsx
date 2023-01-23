@@ -1,5 +1,4 @@
 import React from "react";
-import { useQuery } from "react-query";
 import { useLocation, useParams } from "react-router-dom";
 import ChannelInfo from "../components/ChannelInfo";
 import RelatedVideos from "../components/RelatedVideos";
@@ -10,13 +9,13 @@ export default function VideoDetails() {
   } = useLocation();
   const { title, description, channelId, channelTitle } = video.snippet;
   const { videoId } = useParams();
-  const {} = useQuery([""]);
 
   return (
     <section className="flex flex-col lg:flex-row">
       <article className="basis-3/4">
         <iframe
           id="player"
+          title={title}
           width="100%"
           height="640"
           type="text/html"
